@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+  #HomeImg{
+width: auto;
+
+
+}
+#HomeImg>img{
+    width:100%;
+     display: flex;
+  justify-content: center;
+}
+#innerdiv{
+    margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  height: auto;
+text-align: center;
+}
+
+
+.search-bar {
+    display: flex;
+  justify-content: center;
+  
+}
+
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+select,
+input {
+  margin: 20px;
+  width: 200px;
+  border: none;
+}
+
+select[name="pickup-location"],
+select[name="dropoff-location"] {
+  display: inline-block;
+}
+
+input[type="date"] {
+  display: inline-block;
+}
+
+button {
+  margin-top: 20%;
+  margin-left: 42%;
+  text-align: center;
+  display: block;
+  width: 150px;
+  padding: 10px;
+  background-color: #0d19cb;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.div1{
+    margin-left: 18% ;
+background-color: rgb(214, 204, 204);
+width:60%;
+height: 50vh;
+}
+
+  </style>
+</head>
+<body>
+    <div id="HomeImg">
+   <img src="https://scontent.fagr2-1.fna.fbcdn.net/v/t39.30808-6/287799978_1406726829829268_5230479240047105234_n.jpg?stp=dst-jpg_s960x960&_nc_cat=100&ccb=1-7&_nc_sid=e3f864&_nc_ohc=nBmp1vmNb48AX8C4Vy5&_nc_ht=scontent.fagr2-1.fna&oh=00_AfBcyJGLMGExiOgy-bp8f9U2xhgA85NkwwQ1RdleC8Xieg&oe=6467F0A8" alt="">
+    
+     <div class="div1">
+     <h2>We pride ourselves on delivering ultimate luxury, convenience, and seamless customer experience to our customers.</h2>
+  <div class="search-bar">
+    
+    <select name="pickup-location">
+      <option value="location1">Pickup Location 1</option>
+      <option value="location2">Pickup Location 2</option>
+      <!-- Add more pickup locations as options -->
+    </select>
+    <select name="dropoff-location">
+      <option value="location1">Drop-off Location 1</option>
+      <option value="location2">Drop-off Location 2</option>
+      <!-- Add more drop-off locations as options -->
+    </select>
+    <input type="date" name="pickup-date" placeholder="pickup-date">
+    <input type="date" name="dropoff-date" value="dropoff-date">
+</div>
+<button>Find Out More</button>
+  </div>
+</div>
+</body>
+</html>
+
+
+
+
+  
+  < 
+ 
