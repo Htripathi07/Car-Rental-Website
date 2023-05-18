@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bookingDetails.css">
+    <title>Booking Form</title>
+</head>
+<body>
+
+    <form id="bookingForm">
+        <h1>Booking Form</h1>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+      
+        <label for="contact">Contact No:</label>
+        <input type="tel" id="contact" required>
+      
+        <label for="email">Email:</label>
+        <input type="email" id="email" required>
+      
+        <label for="pickupLocation">Pickup Location:</label>
+        <input type="text" id="pickupLocation" required>
+      
+        <label for="pickupDate">Pickup Date:</label>
+        <input type="date" id="pickupDate" required>
+      
+        <label for="dropoffLocation">Drop-off Location:</label>
+        <input type="text" id="dropoffLocation" required>
+      
+        <label for="dropoffDate">Drop-off Date:</label>
+        <input type="date" id="dropoffDate" required>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit", submitDetails);
+    var detailsArr = JSON.parse(localStorage.getItem("booking")) || [];
+    console.log("hi")
+function submitDetails() {
+  event.preventDefault(); // Prevent form submission
+
+  var name = document.getElementById("name").value;
+  var contact = document.getElementById("contact").value;
+  var email = document.getElementById("email").value;
+  var pickupLocation = document.getElementById("pickupLocation").value;
+  var pickupDate = document.getElementById("pickupDate").value;
+  var dropoffLocation = document.getElementById("dropoffLocation").value;
+  var dropoffDate = document.getElementById("dropoffDate").value;
+
+  // Validate contact number format
+  var contactRegex = /^\d{10}$/;
+  if (!contactRegex.test(contact)) {
+    alert("Please enter a valid contact number.");
+    return;
+  }
+
+  // Validate pickup and drop-off date
+  var pickupDateTime = new Date(pickupDate).getTime();
+  var dropoffDateTime = new Date(dropoffDate).getTime();
+  var currentDate = new Date().setHours(0, 0, 0, 0);
+
+  if (pickupDateTime < currentDate || dropoffDateTime < currentDate) {
+    alert("Please select valid pickup and drop-off dates.");
+    return;
+  }
+
+  // Store form data in local storage
+  var bookingDetails = {
+    name: name,
+    contact: contact,
+    email: email,
+    pickupLocation: pickupLocation,
+    pickupDate: pickupDate,
+    dropoffLocation: dropoffLocation,
+    dropoffDate: dropoffDate
+  };
+  detailsArr.push(bookingDetails);
+  console.log(detailsArr);
+  localStorage.setItem("booking", JSON.stringify(detailsArr));
+  document.querySelector("form").reset();
+}
+
+</script>
