@@ -222,103 +222,147 @@ let cars=
   }
   ];
 
+
   const sortSelect = document.getElementById('sort');
   const filterSelect = document.getElementById('filter');
   const carContainer = document.querySelector('.car-container');
-
-   // Function to render car cards
-   function renderCarCards(carsArray) {
+  
+  // Function to render car cards
+  function renderCarCards(carsArray) {
     carContainer.innerHTML = '';
-
+  
     carsArray.forEach(car => {
       // Create car card element
       const carCard = document.createElement('div');
       carCard.classList.add('car-card');
-
+  
       // Create car image element
       const carImage = document.createElement('img');
       carImage.src = car.image;
       carImage.alt = car.name;
       carImage.classList.add('car-image');
       carCard.appendChild(carImage);
-
+  
       // Create car name element
       const carName = document.createElement('h2');
       carName.innerText = car.name;
       carName.classList.add('car-name');
       carCard.appendChild(carName);
-
+  
       // Create car rent element
       const carRent = document.createElement('p');
-      carRent.innerText = `Rent: $ ${car.rent}/Day`;
+      carRent.innerText = `$ ${car.rent}/Day`;
       carRent.classList.add('car-rent');
       carCard.appendChild(carRent);
-
+  
+      const desc = document.createElement('div');
+      desc.classList.add('parent-div');
+  
+      // Create car type
+      const carType = document.createElement('div');
+      carType.innerText = `Automatic`;
+      carType.classList.add('car-type');
+      desc.appendChild(carType);
+  
+      // Create car seating capacity
+      const carSeatingCapacity = document.createElement('div');
+      carSeatingCapacity.innerText = `${car.seatingCapacity} People`;
+      carSeatingCapacity.classList.add('car-seatingCapacity');
+      desc.appendChild(carSeatingCapacity);
+  
+      // Create car ac type
+      const carAc = document.createElement('div');
+      carAc.innerText = `Air-Con`;
+      carAc.classList.add('car-Ac');
+      desc.appendChild(carAc);
+  
+      carCard.appendChild(desc);
+  
+      // Create car free services
+      const carFree = document.createElement('div');
+      carFree.innerText = `200Km Free Per Day`;
+      carFree.classList.add('car-free');
+      carCard.appendChild(carFree);
+  
       // Create car rating element
-      const carRating = document.createElement('p');
+      const carRating = document.createElement('div');
       carRating.innerText = `Rating: ${car.ratings}`;
       carRating.classList.add('car-rating');
       carCard.appendChild(carRating);
-
-      const rentBtn=document.createElement("button");
-      rentBtn.innerText="Book Now →";
-      rentBtn.addEventListener("click",bookingForm)
+  
+      const rentBtn = document.createElement('button');
+      rentBtn.innerText = 'Book Now';
+      rentBtn.addEventListener('click', () => addToLocalStorage(car));
       carCard.appendChild(rentBtn);
-
+  
       // Append car card to car container
       carContainer.appendChild(carCard);
     });
   }
-
   
-    // Function to sort cars based on price (low to high)
-    function sortCarsByPriceLowToHigh() {
-      const sortedCars = cars.slice().sort((a, b) => a.rent - b.rent);
-      renderCarCards(sortedCars);
+  // Function to sort cars based on price (low to high)
+  function sortCarsByPriceLowToHigh() {
+    const sortedCars = cars.slice().sort((a, b) => a.rent - b.rent);
+    renderCarCards(sortedCars);
+  }
+  
+  // Function to sort cars based on price (high to low)
+  function sortCarsByPriceHighToLow() {
+    const sortedCars = cars.slice().sort((a, b) => b.rent - a.rent);
+    renderCarCards(sortedCars);
+  }
+  
+  // Function to sort cars based on rating
+  function sortCarsByRating() {
+    const sortedCars = cars.slice().sort((a, b) => b.ratings - a.ratings);
+    renderCarCards(sortedCars);
+  }
+  
+  // Event listener for sorting select
+  sortSelect.addEventListener('change', () => {
+    const selectedOption = sortSelect.value;
+  
+    if (selectedOption === 'price-low') {
+      sortCarsByPriceLowToHigh();
+    } else if (selectedOption === 'price-high') {
+      sortCarsByPriceHighToLow();
+    } else if (selectedOption === 'rating') {
+      sortCarsByRating();
     }
-
-    // Function to sort cars based on price (high to low)
-    function sortCarsByPriceHighToLow() {
-      const sortedCars = cars.slice().sort((a, b) => b.rent - a.rent);
-      renderCarCards(sortedCars);
-    }
-
-    // Function to sort cars based on rating
-    function sortCarsByRating() {
-      const sortedCars = cars.slice().sort((a, b) => b.ratings - a.ratings);
-      renderCarCards(sortedCars);
-    }
-
-    // Event listener for sorting select
-    sortSelect.addEventListener('change', () => {
-      const selectedOption = sortSelect.value;
-
-      if (selectedOption === 'price-low') {
-        sortCarsByPriceLowToHigh();
-      } else if (selectedOption === 'price-high') {
-        sortCarsByPriceHighToLow();
-      } else if (selectedOption === 'rating') {
-        sortCarsByRating();
-      }
-    });
-
-    // Function to filter cars by minimum rating
-    function filterCarsByRating(minRating) {
-      const filteredCars = cars.filter(car => car.ratings >= minRating);
-      renderCarCards(filteredCars);
-    }
-
-    // Event listener for filtering select
-    filterSelect.addEventListener('change', () => {
-      const selectedOption = filterSelect.value;
-      filterCarsByRating(Number(selectedOption));
-    });
-
-    // Initial rendering of car cards
-    renderCarCards(cars);
-
-    function bookingForm(){
-      window.location.href = "bookingDetails.html";
-    }
-
+  });
+  
+  // Function to filter cars by minimum rating
+  function filterCarsByRating(minRating) {
+    const filteredCars = cars.filter(car => car.ratings >= minRating);
+    renderCarCards(filteredCars);
+  }
+  
+  // Event listener for filtering select
+  filterSelect.addEventListener('change', () => {
+    const selectedOption = filterSelect.value;
+    filterCarsByRating(Number(selectedOption));
+  });
+  
+  // Initial rendering of car cards
+  renderCarCards(cars);
+  
+  // Function to add car details to local storage
+  function addToLocalStorage(car) {
+    const selectedCar = {
+      name: car.name,
+      rent: car.rent,
+      image: car.image,
+      ratings: car.ratings
+    };
+  
+    // Retrieve existing car details from local storage
+    const existingCars = JSON.parse(localStorage.getItem('selectedCars')) || [];
+  
+    // Add the selected car to the array
+    existingCars.push(selectedCar);
+  
+    // Store the updated array in local storage
+    localStorage.setItem('selectedCars', JSON.stringify(existingCars));
+  }
+  
   
