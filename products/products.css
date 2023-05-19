@@ -38,22 +38,9 @@
     padding: 5px 10px 5px 10px;
     background-color: #fafafa;
     border-radius: 20px;
+    margin-bottom: 10px;
   }
-  .car-free{
-    margin: 10px 0px;
-    width: 50%;
-    padding: 5px 10px 5px 10px;
-    background-color: #fafafa;
-    border-radius: 20px;
-  }
-  
-  .car-rating {
-    text-align: center;
-    background-color: #F9F9F9;
-    border-radius: 10px;
-    margin: 20px;
-      
-  }
+
   #functionality {
     display: flex;
     justify-content: space-between;
@@ -65,7 +52,7 @@
     border-radius: 10px;
     padding: 8px;
   }
-  button{
+  .rent-btn{
     width: 100%;
     margin: auto;
     border: none;
@@ -73,13 +60,54 @@
     background-color:#4169E1;
     color:white;
     border-radius: 20px;
-    font-size: larger;
+    font-size: large;
     padding: 7px;
   }
-  button:hover{
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  
+  .car-rate {
+    display: flex;
+    justify-content: space-between;
+  }
+  .car-rate div{
+    padding: 5px 10px 5px 10px;
+    background-color: #fafafa;
+    border-radius: 20px;
+  }
+ 
+
+  .rent-btn:hover{
+    cursor: pointer;
+    background-color: #F0903C;
+  }
+  .quantity-selector {
+    float: right;
+    margin: 10px;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+  }
+  
+  .quantity-btn {
+    width: 25px;
+    height: 25px;
+    background-color:#fafafa;
+    border: 1px solid grey;
+    border-radius: 50%;
+    outline: none;
     cursor: pointer;
   }
+  
+  .quantity-input {
+    width: 40px;
+    height: 25px;
+    text-align: center;
+    border: none;
+    outline: none;
+  }
+  
+  
   @media (max-width: 1000px) {
     /* Tablet screens */
     .car-container {
