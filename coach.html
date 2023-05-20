@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <link
+  href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
+<head>
+  <title>Rent a Bus Coach</title>
+  <link rel="icon" type="image/png" href="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png" sizes="64x64">
+ 
+  <style>
+    body {
+    
+      margin: 0;
+      padding: 0;
+    }
+
+    .banner {
+      width: 100%;
+      height: 450px;
+      background-image: url("https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/projects/mwendo/wp-content/uploads/2023/02/cover.jpg");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .banner-text{
+      background-color: transparent;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: xx-large;
+    }
+   
+    .form-container {
+      max-width: 70%;
+      margin: auto;
+      margin-top: -60px;
+      padding: 20px;
+      background-color:white;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      justify-content: space-between;
+      row-gap: 20px;
+
+    }
+    input{
+      width: 90%;
+    }
+    select{
+      width: 97%;
+    }
+
+    .form-grid label {
+      color: grey;
+     
+    }
+
+    .form-grid input[type="text"],
+    .form-grid input[type="tel"],
+    .form-grid input[type="email"],
+    .form-grid select {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+      background-color: #ffffff;
+      color: #333333;
+    }
+
+    .form-container button[type="submit"] {
+      background-color:#2F2C7D;
+      color: #ffffff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: all-scroll;
+      transition: background-color 0.3s ease;
+      margin-top:30px ;
+      width: 100%;
+    }
+
+    .form-container button[type="submit"]:hover {
+      background-color: #F0903C;
+    }
+
+    .form-container button[type="submit"]:focus {
+      outline: none;
+    }
+    
+   
+   
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <div class="banner-text">
+      <h2>Coach & Bus Hire</h2>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <form id="rentForm">
+      <div class="form-grid">
+        <div>
+          <label for="name">Full Name</label> <br>
+          <br><input type="text" id="name" required>
+        </div>
+        <div>
+          <label for="email">Email Address</label> <br>
+          <br><input type="email" id="email" required>
+        </div>
+        <div>
+          <label for="contact">Phone Number</label> <br>
+          <br><input type="tel" id="contact" required>
+        </div>
+        <div>
+          <label for="pickupLocation">Pick up Location</label> <br>
+          <br><input type="text" id="pickupLocation" required>
+        </div>
+        <div>
+          <label for="passengerCount">Number of Passengers</label> <br>
+          <br><input type="text" id="passengerCount" required>
+        </div>
+        <div>
+          <label for="vehicleType">Select Vehicle</label><br>
+          <br><select id="vehicleType" required>
+            <option value="">Select Vehicle Type</option>
+            <option value="Minibus">Minibus</option>
+            <option value="Coach">Coach</option>
+            <option value="Luxury Bus">Luxury Bus</option>
+          </select>
+        </div>
+        <div>
+          <label for="departureDate">Intended Date of Departure</label> <br>
+          <br><input type="date" id="departureDate" required>
+        </div>
+        <div>
+          <label for="returnDate">Expected Date of Return</label> <br>
+          <br><input type="date" id="returnDate" required>
+        </div>
+      </div>
+
+      <div>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+
+
+
+ 
+
+
+</body>
+</html>
+<script>
+  document.getElementById("rentForm").addEventListener("submit", submitForm);
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var contact = document.getElementById("contact").value;
+    var email = document.getElementById("email").value;
+    var duration = document.getElementById("duration").value;
+    var seats = document.getElementById("seats").value;
+
+    // Perform form validation and submission logic here
+
+    // Reset the form after submission
+    document.getElementById("rentForm").reset();
+  }
+</script>
