@@ -1,30 +1,4 @@
-let data=[
-  {
-   "id": 1,
-   "name": "Toyota Camry",
-   "price": 50,
-   "image": "https://www.carblogindia.com/wp-content/uploads/2020/05/BS6-Toyota-Camry.jpg",
-   "description": "The Toyota Camry is a reliable and comfortable sedan with a spacious interior.",
-   "quantity": 1
- },
- {
-  "id": 2,
-  "name": "Toyota Camry",
-   "price": 50,
-   "image": "https://www.carblogindia.com/wp-content/uploads/2020/05/BS6-Toyota-Camry.jpg",
-   "description": "The Toyota Camry is a reliable and comfortable sedan with a spacious interior.",
-   "quantity": 1
-},
- {
-  "id": 3,
-  "name": "Toyota Camry",
-   "price": 50,
-   "image": "https://www.carblogindia.com/wp-content/uploads/2020/05/BS6-Toyota-Camry.jpg",
-   "description": "The Toyota Camry is a reliable and comfortable sedan with a spacious interior.",
-   "quantity": 1
-},
- 
-];
+let data=JSON.parse(localStorage.getItem("selectedCars")) || [];
 
 const cartPRoductDetails=(data) => {
 let productDivBody=document.getElementById("productDivBody");

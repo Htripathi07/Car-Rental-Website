@@ -1,5 +1,7 @@
-let data=JSON.parse(localStorage.getItem("")) || [];
+let data=JSON.parse(localStorage.getItem("selectedCars")) || [];
 let PaymentDetails=JSON.parse(localStorage.getItem("PaymentDetails")) || [];
+
+// ===========================================================================
 
 const cartPRoductDetails=(data) => {
     let productDivBody=document.getElementById("productDivBody");
@@ -25,59 +27,24 @@ const cartPRoductDetails=(data) => {
     
       let tdSubTotal=document.createElement("td");
       tdSubTotal.innerText=elem.price*elem.quantity;
-            // let tdRemove=document.createElement("td");
-            // // let button=document.createElement("button");
-            // // button.innerText="❌";
-            // // button.addEventListener("click",() => {
-            // //     event.target.parentNode.remove();
-            // //     data.splice(idx,1);
-            // //     localStorage.setItem("cart",data);
-            
-            // //   });
-            // tdRemove.innerText="❌";
-            // tdRemove.addEventListener("click",() => {
-            //     event.target.parentNode.remove();
-            //     data.splice(idx,1);
-            //     localStorage.setItem("cart",data);
-            //     console.log(data);
-            //     cartPRoductDetails(data);
-            //     cartSubTotal(data);
-            
-            // });
-
-            tr.append(tdImage,tdProduct,tdPrice,tdQuantity,tdSubTotal); 
-            productDivBody.append(tr);
             
 
-        });
+    tr.append(tdImage,tdProduct,tdPrice,tdQuantity,tdSubTotal); 
+    productDivBody.append(tr);
+            
+
+    });
 };
 
 cartPRoductDetails(data);
-// discount:discount,
-//       total : total,
-//       subtotal : subtotal,
-//       tax:tax
+// =============================================================================
 
 const cartSubTotal=(data)=>{
     console.log(data);
     
-    // let div=document.getElementById("cartTotals");
-    // div.innerHTML="";
     
     let toPay=data.total,subtotal=data.subtotal,total=data.total,tax=data.tax ,discount=data.discount;
-    // data.forEach(elem => {
-    //   subtotal+=elem.price*elem.quantity;
-    // });
-    // data.map((elem)=>{
-    
-    //   subtotal+=elem.price*elem.quantity;
-    // })
-    // console.log(subtotal);
-    // tax=subtotal/5;
-    // total=tax+subtotal;
-    // toPay=total;
-    // console.log(subtotal,total,toPay,tax);
-    
+       
     
     document.getElementById("subTotal").innerText=subtotal;
     document.getElementById("discount").innerText=discount;
@@ -93,6 +60,7 @@ const cartSubTotal=(data)=>{
     }
     cartSubTotal(PaymentDetails);
 
+    
 
     function fun(){
         let name=document.getElementById("name").value;
@@ -104,7 +72,7 @@ const cartSubTotal=(data)=>{
 
         if(name != "" || country != "Select" || address!="" || phone != "" || email!=""){
             localStorage.setItem("finalPrice",PaymentDetails.total);
-            window.location.href="rough.html";
+            window.location.href="payment.html";
         }else{
             alert("WARNING !! PLEASE FILL ALL THE DETAILS")
         }
