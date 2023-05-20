@@ -1,120 +1,111 @@
-let data =JSON.parse(localStorage.getItem("PaymentDetails"));
-
+let data=JSON.parse(localStorage.getItem("")) || [];
+let PaymentDetails=JSON.parse(localStorage.getItem("PaymentDetails")) || [];
 
 const cartPRoductDetails=(data) => {
     let productDivBody=document.getElementById("productDivBody");
-    // productDivBody.innerHTML="";
+    productDivBody.innerHTML="";
     data.map((elem,idx)=> {
-        let tr=document.createElement("tr");
+      let tr=document.createElement("tr");
+    
+    
+      let tdImage=document.createElement("td");
+      let img=document.createElement("img");
+      img.src=elem.image;
+      tdImage.append(img);
+    
+    
+      let tdProduct=document.createElement("td");
+      tdProduct.innerText=elem.description;
+    
+      let tdPrice=document.createElement("td");
+      tdPrice.innerText=elem.price;
+    
+      let tdQuantity=document.createElement("td");
+      tdQuantity.innerText=elem.quantity;
+    
+      let tdSubTotal=document.createElement("td");
+      tdSubTotal.innerText=elem.price*elem.quantity;
+            // let tdRemove=document.createElement("td");
+            // // let button=document.createElement("button");
+            // // button.innerText="❌";
+            // // button.addEventListener("click",() => {
+            // //     event.target.parentNode.remove();
+            // //     data.splice(idx,1);
+            // //     localStorage.setItem("cart",data);
+            
+            // //   });
+            // tdRemove.innerText="❌";
+            // tdRemove.addEventListener("click",() => {
+            //     event.target.parentNode.remove();
+            //     data.splice(idx,1);
+            //     localStorage.setItem("cart",data);
+            //     console.log(data);
+            //     cartPRoductDetails(data);
+            //     cartSubTotal(data);
+            
+            // });
 
+            tr.append(tdImage,tdProduct,tdPrice,tdQuantity,tdSubTotal); 
+            productDivBody.append(tr);
+            
 
-        let tdImage=document.createEleme nt("td");
-        let img=document.createElement("img");
-        img.src="https://mwendoafrica.com/wp-content/uploads/2023/01/CARS-PNG-07.png";
-        tdImage.append(img);
+        });
+};
 
-        let tdProduct=document.createElement("td");
-        tdProduct.innerText=elem.description;
-
-        let tdPrice=document.createElement("td");
-        tdPrice.innerText=elem.price;
-
-        let tdQuantity=document.createElement("td");
-        tdQuantity.innerText="1";
-
-        let tdSubTotal=document.createElement("td");
-        tdSubTotal.innerText=elem.price*1;
-
-        let tdRemove=document.createElement("td");
-        let button=document.createElement("button");
-        button.innerText="❌";
-        button.addEventListener("click",() => {
-            event.target.parentNode.remove();
-            data.splice(idx,1);
-            localStorage.setItem("cart",data);
-           
-          });
-        tdRemove.innerText="❌";
-        tdRemove.addEventListener("click",() => {
-            event.target.parentNode.remove();
-            data.splice(idx,1);
-            localStorage.setItem("cart",data);
-            console.log(data);
-            cartPRoductDetails(data);
-           
-          });
-
-        tr.append(tdImage,tdProduct,tdPrice,tdQuantity,tdSubTotal,tdRemove); 
-        productDivBody.append(tr);
-        cartSubTotal();
-
-    });
-}
 cartPRoductDetails(data);
+// discount:discount,
+//       total : total,
+//       subtotal : subtotal,
+//       tax:tax
 
-function cartSubTotal(){
-    let row=document.getElementById("cartTotal");
-    let toPay,subtotal,total;
-    data.map((elem)=>{
-        subtotal=elem.price*elem.quantity;
-    })
-    total=(subtotal/5)+subtotal;
-    toPay=total;
-
-    let tr1=document.createElement("tr");
-
-    let th1=document.createElement("th");
-    th1.innerText="SUBTOTAL";
-
-    let td1=document.createElement("th");
-    td1.innerText=subtotal;
-
-    tr1.append(th1,td1);
-
-    let tr2=document.createElement("tr");
-
-    let th2=document.createElement("th");
-    th2.innerText="TOTAL";
-
-    let td2=document.createElement("th");
-    td2.innerText=total;
-
-    tr2.append(th2,td2);
-
-    let tr3=document.createElement("tr");
-
-    let th3=document.createElement("th");
-    th3.innerText="TO PAY";
-
-    let td3=document.createElement("th");
-    td3.innerText=toPay;
-
-    tr3.append(th3,td3);
-
-    row.append(tr1,tr2,tr3);
-
-    let obj={
-        total : total,
-        subtotal:subtotal,
-        toPay:toPay
-    }
-    localStorage.setItem("PaymentDetails",JSON.stringify(obj));
-
-    // let cartTotalDiv=document.getElementById("cartTotalDiv");
-
-    // let pcobutton=document.createElement("button");
-    // button.innerText="PROCEED TO CHECKOUT";
-    // button.addEventListener("click",() => {
-    //     let obj={
-    //         total : total,
-    //         subtotal:subtotal,
-    //         toPay:toPay
-    //     }
-    //     localStorage.setItem("PaymentDetails",obj);
+const cartSubTotal=(data)=>{
+    console.log(data);
+    
+    // let div=document.getElementById("cartTotals");
+    // div.innerHTML="";
+    
+    let toPay=data.total,subtotal=data.subtotal,total=data.total,tax=data.tax ,discount=data.discount;
+    // data.forEach(elem => {
+    //   subtotal+=elem.price*elem.quantity;
+    // });
+    // data.map((elem)=>{
+    
+    //   subtotal+=elem.price*elem.quantity;
     // })
+    // console.log(subtotal);
+    // tax=subtotal/5;
+    // total=tax+subtotal;
+    // toPay=total;
+    // console.log(subtotal,total,toPay,tax);
+    
+    
+    document.getElementById("subTotal").innerText=subtotal;
+    document.getElementById("discount").innerText=discount;
+    document.getElementById("tax").innerText=tax;
+    document.getElementById("total").innerText=total;
+    document.getElementById("toPay").innerText=toPay;
+    
+    let butt =document.getElementById("buttonPayment");
+    butt.innerText="PROCEED TO CHECKOUT";
+    butt.addEventListener("click",() => {
+      fun();
+    });
+    }
+    cartSubTotal(PaymentDetails);
 
 
-}
+    function fun(){
+        let name=document.getElementById("name").value;
+        let country=document.getElementById("countries").value;
+        console.log(country);
+        let address=document.getElementById("address").value;
+        let phone=document.getElementById("phone").value;
+        let email=document.getElementById("email").value;
 
-
-console.log(PaymentDetails);
+        if(name != "" || country != "Select" || address!="" || phone != "" || email!=""){
+            localStorage.setItem("finalPrice",PaymentDetails.total);
+            window.location.href="rough.html";
+        }else{
+            alert("WARNING !! PLEASE FILL ALL THE DETAILS")
+        }
+    }

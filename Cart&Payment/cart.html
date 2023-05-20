@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png" sizes="64x64">
+    <title>CartPage</title>
 
     <style>
         h1 {
@@ -15,7 +16,10 @@
             margin-left: -30px;
             
         }
-
+        h1:hover {
+            color:#F0903C
+            
+        }
         #main {
             display: flex;
             margin: auto;
@@ -115,21 +119,30 @@
         #right > div:first-child{
             margin-top: 82px;
         }
-        span{
+        h3 > span{
             margin-left: 30px;
+            color: #4169E1;
         }
-        #total{
+        /* #total{
             margin-left: 52px;
-        }
-        #toPay{
+        } */
+        /* #toPay{
             margin-left: 39px;
-        }
+        } */
         body{
             background-image: url("https://en.unesco.org/sites/default/files/styles/img_688x358/public/globe_3.jpg?itok=-VkAtg1e");
         }
         /* #cartTotals{
             background-color: whitesmoke;
         } */
+
+        #cartTotalDiv{
+            height: 237px;
+        }
+        #cartTotalDiv > div > input{
+            width:98%;
+        }
+        
         
 
        
@@ -169,13 +182,15 @@
             <h1>Cart Total</h1>
             <div id="cartTotalDiv">
                 <div id="cartTotals" >
-                    <h3>❑ Subtotal :<span id="subTotal"></span></h3>
+                    <h3>❑ Subtotal :<span >$ <span id="subTotal"></span></span></h3>
+                    <h3>❑ Discount :<span >$ <span id="discount">0</span></span></h3>
+                    <h3>❑ Tax(20%) :<span >$ <span id="tax"></span></span></h3>
+                    <h3>❑ Total :<span >$ <span id="total"></span></span> </h3>
                     
-                    <h3>❑ Total :      <span id="total"></span></h3>
-                    
-                    <h3>❑ To Pay :    <span id="toPay"></span></h3>
+                    <h3>❑ To Be Paid :<span>$<span id="toPay"></span></span></h3>
                 </div>
                 <div>
+                <input type="text" id="coupon" placeholder="Enter Coupon Here" oninput="debounce(main, 3000)"/>
                  <button id="buttonPayment"></button>
                 </div>               
 

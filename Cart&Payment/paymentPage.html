@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" type="image/png" href="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png" sizes="64x64">
+    <title>PaymentPage</title>
     
     <style>
         h1 {
@@ -14,7 +15,10 @@
             margin-left: -30px;
             
         }
-
+        h1:hover {
+            color:#F0903C
+            
+        }
         #main {
             display: flex;
             margin: auto;
@@ -114,155 +118,221 @@
         #right > div:first-child{
             margin-top: 82px;
         }
-        span{
+        h3 > span{
             margin-left: 30px;
+            color: #4169E1;
         }
-        #total{
+        /* #total{
             margin-left: 52px;
-        }
-        #toPay{
+        } */
+        /* #toPay{
             margin-left: 39px;
-        }
+        } */
         body{
             background-image: url("https://en.unesco.org/sites/default/files/styles/img_688x358/public/globe_3.jpg?itok=-VkAtg1e");
         }
+        /* #cartTotals{
+            background-color: whitesmoke;
+        } */
+
+        #cartTotalDiv{
+            height: 237px;
+        }
+        #cartTotalDiv > div > input{
+            width:98%;
+        }
+        
+        
+
+       
+        
+       
+        body{
+            background-image: url("https://en.unesco.org/sites/default/files/styles/img_688x358/public/globe_3.jpg?itok=-VkAtg1e");
+        }
+        /* #cartTotals{
+            background-color: whitesmoke;
+        } */
+        #BillingDetail,#secondDiv{
+            width:50%;
+            background-color: whitesmoke;
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        }
+        /* #fisrtParent > div> h1{
+            text-align: center;
+        } */
+        #secondDiv >textarea {
+            width:90%;
+            
+        }
+        /* form{
+            display: table;
+        } */
+        form > select{
+            width:168px;
+        }
+
+        /* form > input:nth-child(){
+            margin-left: 100px;
+        }
+
+        form > input:nth-child(3){
+            margin-left: 100px;
+        }
+        form > input:nth-child(4){
+            margin-left: 100px;
+        }
+        form > input:nth-child(5){
+            margin-left: -100px;
+        } */
+        #first{
+            display: flex;
+            justify-content: space-between;
+        }
+        #first > div > div{
+           margin: auto;
+        }
+        #secondDiv{
+            padding-bottom: 86px;
+        }
+        #ast{
+            color: red;
+        }
+        
+
 
         
     </style>
 </head>
 <body>
     <div id="main">
-            <div id="left">
-                <div id="BillingDetail">
-                    <form>
-                        <h1>Billing details</h1>
-                        <p>
-                        <label for="first-name">First name *</label>
-                        <input type="text" id="first-name" required>
-                        </p>
-        
-                        <br>
-                        <label for="last-name">Last name *</label>
-                        <input type="text" id="last-name" required>
-                        <br>
-                        <label for="company-name">Company name (optional)</label>
-                        <input type="text" id="company-name">
-                        <br>
-                        <label for="country">Country / Region *</label>
-                        <select name="" id="">
-                            <option value="India">India</option>
-                            <option value="Zimbabwe">Zimbabwe</option>
-                            <option value="Australia">Australia</option>
-                            <option value="South Africa">South Africa</option>
-                        </select>
+        <div id="left">
+            <div id="first">
+            <div>
+            <h1>Billing details</h1>
+            <div id="BillingDetail">
+                
+                <form>
+                                   
+                    <label for="first-name">Name <span id="ast">*</span></label>
+                    <input type="text" id="name" required oninvalid="setCustomValidity('Please fill this field')" oninput="setCustomValidity('Please fill this field')"/>
+                           
+                    <br>
+                    <label for="country">Country / Region <span id="ast">*</span></label>
+                    <select name="" id="countries">
+                        <option value="Select">Please Select</option>
+                        <option value="India">India</option>
+                        <option value="Zimbabwe">Zimbabwe</option>
+                        <option value="Australia">Australia</option>
+                        <option value="South Africa">South Africa</option>
+                    </select>
 
-                        </select>
-                        <br>
-                        <label for="street-address">Street address *</label>
-                        <input type="text" id="street-address" required>
-                        <br>
-                        <label for="apartment">Apartment, suite, unit, etc. (optional)</label>
-                        <input type="text" id="apartment">
-                        <br>
-                        <label for="town-city">Town / City *</label>
-                        <input type="text" id="town-city" required>
-                        <br>
-                        <label for="state-county">State / County *</label>
-                        <input type="text" id="state-county" required>
-                        <br>
-                        <label for="phone">Phone *</label>
-                        <input type="tel" id="phone" required>
-                        <br>
-                        <label for="email">Email address *</label>
-                        <input type="email" id="email" required>
-                    </form>
-                </div>
-            
-        
-
-                <h1>Your order</h1>
-                <div id="productDiv">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>VIEW</th>
-                                <th>PRODUCT</th>
-                                <th>PRICE</th>
-                                <th>QUANTITY</th>
-                                <th>SUBTOTAL</th>
-                                <th>REMOVE</th>
-                            </tr>
-                        </thead>
-                        <tbody id="productDivBody">
-                            
-                        </tbody>
-                    </table>
-                </div>
-            
-            
-                <!-- =========================================== -->
-                <h1>Cart Totals</h1>
-                <div id="cartTotalDiv">
-                    <table>
-                        <tbody id="cartTotal">
-            
-                        </tbody>
-                    </table>
-            
-                    <a href="./paymentPage.html" >PROCEED TO CHECKOUT</a>
-            
-                </div>
-
+                    </select>
+                    <br>
+                    <label for="street-address">Address <span id="ast">*</span></label>
+                    <input type="text" id="address" required oninvalid="setCustomValidity('Please fill this field')" oninput="setCustomValidity('Please fill this field')"/>
+                    <br>
+                    <label for="phone">Phone <span id="ast">*</span></label>
+                    <input type="tel" id="phone" required oninvalid="setCustomValidity('Please fill this field correctly')" oninput="setCustomValidity('Please fill this field')"/>
+                    <br>
+                    <label for="email">Email address <span id="ast">*</span></label>
+                    <input type="email" id="email" required oninvalid="setCustomValidity('Please fill this field')" oninput="setCustomValidity('Please fill this field')"/>
+                </form>
             </div>
-
-
-    </div>
-    <div class="right_container">
-        <div class="notes">
+            </div>
+            <div>
             <h1>Additional information</h1>
-            <br>
-            <h4>Order notes (optional)
-            </h4>
-            <br>
-            <textarea name="" id="" cols="30" rows="10"
-                placeholder="Notes About your order,e.g. special notes for delivery "></textarea>
+            <div id="secondDiv">                  
+                <textarea name="" id="" cols="30" rows="10" placeholder="Notes About your order,e.g. special notes for delivery "></textarea>
+            </div> 
+            </div> 
+            </div>     
+                    
+                
+            
+        
+
+                    <h1>Cart</h1>
+                    <div id="productDiv">
+                        <table id="productTable">
+                            <thead>
+                                <tr>
+                                    <th>VIEW</th>
+                                    <th>PRODUCT</th>
+                                    <th>PRICE</th>
+                                    <th>QUANTITY</th>
+                                    <th>SUBTOTAL</th>
+                                    
+                                    
+                                </tr>
+                                
+                            </thead>
+                            <tbody id="productDivBody">
+                                
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                    <!-- =========================================== -->
+                    <h1>Cart Total</h1>
+                    <div id="cartTotalDiv">
+                        <div id="cartTotals" >
+                            <h3>❑ Subtotal :<span >$ <span id="subTotal"></span></span></h3>
+                    <h3>❑ Discount :<span >$ <span id="discount">0</span></span></h3>
+                    <h3>❑ Tax(20%) :<span >$ <span id="tax"></span></span></h3>
+                    <h3>❑ Total :<span >$ <span id="total"></span></span> </h3>
+                    
+                    <h3>❑ To Be Paid :<span>$<span id="toPay"></span></span></h3>
+                        </div>
+                        <div>
+                        <button id="buttonPayment"></button>
+                        </div>               
+
+                    </div>
+
         </div>
+
+
     
+    <div id="right">
         <div>
             <h2>Recent Post</h2>
             <ul>
-                <p>Mwendo Africa: The Most Convenient Car Rental Option in Zimbabwe</p>
-                <p>Experience the Best of Zimbabwe with Mwendo Africa Car Rental</p>
-                <p>Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</p>
-                <p>Explore Zimbabwe’s Hidden Gems with Mwendo Africa Car Rental</p>
-                <p>Why Renting a Car from Mwendo Africa is the Best Way to See Zimbabwe</p>
+                <li>Mwendo Africa: The Most Convenient Car Rental Option in Zimbabwe</li>
+                <li>Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
+                <li>Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                <li>Explore Zimbabwe’s Hidden Gems with Mwendo Africa Car Rental</li>
+                <li>Why Renting a Car from Mwendo Africa is the Best Way to See Zimbabwe</li>
             </ul>
         </div>
         <div>
             <h2>Recent Comments</h2>
             <ul>
-                <p>webadmin on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</p>
-                <p>marketing on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</p>
-                <p>Thandiwe Makanjera on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</p>
-                <p>Brian Hoshiki on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</p>
+                <li>webadmin on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                <li>marketing on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
+                <li>Thandiwe Makanjera on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                <li>Brian Hoshiki on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
             </ul>
         </div>
         <div>
-    
+
             <h2>Archives</h2>
             <ul>
-                <p>February 2023</p>
-                <p>January 2023</p>
+                <li>February 2023</li>
+                <li>January 2023</li>
             </ul>
         </div>
         <div>
             <h2>Categories</h2>
             <ul>
-                <p>News & Updates</p>
-                <p>Uncategorized</p>
+                <li>News & Updates</li>
+                <li>Uncategorized</li>
             </ul>
         </div>
-    
     </div>
 </div>
 
