@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/09ea9ed7f5.js" crossorigin="anonymous"></script>
+    <title>Payment
+    </title>
+    <link rel="icon"
+        href="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png"
+        type="image/icon type">
+
+  
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #payment-navbar {
+            display: flex;
+            justify-content: space-evenly;
+        width: 50%;
+            margin: auto;
+            height: 40px;
+            margin-left: 22%;
+            background-color: beige;
+        }
+
+        #payment-navbar>div:nth-child(2) {
+            line-height: 2px;
+            background-color: beige;
+        }
+
+        #payment-navbar>div>p:nth-child(1) {
+            /* color: rgb(231, 125, 25); */
+            font-size: 15px;
+            background-color: beige;
+            /* background-color: rgb(249, 207, 197); */
+        }
+
+        #payment-price {
+            /* border: 1px solid red; */
+            justify-content: space-around;
+            display: flex;
+            width: 50%;
+            margin-left: 22%;
+            /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+
+            /* background-color: rgb(249, 207, 197); */
+            color: #4169E1;
+        }
+
+        #payment-mode {
+            border: 1px solid #eee;
+            display: flex;
+            width: 50%;
+            margin-left: 22%;
+            border-radius: 2px;
+            height: 500px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+            /* background-color: rgb(157, 182, 247); */
+
+            /* border: 1px solid red; */
+        }
+
+        body {
+            background-image: url(" https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg?size=626&ext=jpg ");
+            /* background-image: url("https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png"); */
+        }
+
+        #left-payment-mode {
+            width: 60%;
+            background-color: whitesmoke;
+            margin-top: 16px;
+            /* border: 5px black; */
+        }
+
+        /* *{
+    background-image: url("https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png");
+} */
+        #left-payment-mode>button {
+            display: block;
+            width: 100%;
+            margin: auto;
+            padding: 20px 15px;
+            border: none;
+            border-bottom: 1px solid #e0e0e0;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        #left-payment-mode>button:nth-child(1) {
+            border-left: 5px solid #4169E1;
+            background-color: white;
+        }
+
+        #payment-debit {
+            border: 1px solid gainsboro;
+            width: 90%;
+            margin: 20px auto;
+            text-align: center;
+            border-radius: 5px;
+            display: block;
+        }
+
+        #payment-debit>div {
+            display: flex;
+            /* border: 1px solid black; */
+            align-items: center;
+        }
+
+        #payment-debit>div>img {
+            width: 20px;
+            height: 20px;
+            margin: 0 3% 0 10%;
+        }
+
+        input {
+            display: block;
+            width: 90%;
+            margin: auto;
+            padding: 10px 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid gray
+        }
+
+        #payment-debit>input:nth-child(4) {
+            width: 40%;
+            display: inline;
+            margin: 0 2%;
+        }
+
+        #payment-debit>input:nth-child(5) {
+            width: 40%;
+            display: inline;
+            margin: 0 2% 10px;
+        }
+
+        #card-payment-div2 {
+            display: flex;
+            align-items: center;
+        }
+
+        #card-payment-div2>label {
+            width: 90%;
+            font-weight: bold;
+        }
+
+        #card-payment-div2>input {
+            width: 10px;
+        }
+
+        #payment-debit>p {
+            padding: 0 10px;
+            color: gray;
+            text-align: left;
+        }
+
+        #card-pay-now-button {
+            width: 90%;
+            padding: 15px 20px;
+            background-color: #4169E1;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        #card-pay-now-button:hover {
+            background-color: #F0903C;
+            cursor: pointer;
+        }
+
+        #payment-wallet {
+            display: none;
+        }
+
+        #payment-wallet>div {
+            display: flex;
+            border: 2px solid #eee;
+            width: 90%;
+            margin: auto;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        * {
+            background-color: #f1f4f6;
+        }
+
+        #payment-wallet>div>img {
+            height: 30px;
+            margin: 0px 20px;
+        }
+
+        #payment-wallet>div>p {
+            width: 280px;
+        }
+
+        #payment-wallet>div>input {
+            height: 20px;
+            margin-top: 10px;
+            margin-left: 20%;
+        }
+
+        #payment-net-banking {
+            display: none;
+        }
+
+        #payment-net-banking>div {
+            display: flex;
+            border: 2px solid #eee;
+            width: 90%;
+            margin: auto;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #payment-net-banking>div>img {
+            height: 30px;
+            margin: 0px 20px;
+        }
+
+        #payment-net-banking>div>p {
+            width: 280px;
+        }
+
+        #payment-net-banking>div>input {
+            height: 20px;
+            margin-top: 10px;
+            margin-left: 20%;
+        }
+
+        #payment-net-other-arrow {
+            border-radius: 50%;
+            height: 20px;
+            margin-left: 50%;
+            background-color: transparent;
+            border: 0;
+            transform: rotate(225deg);
+        }
+
+        #payment-net-banking>p {
+            font-size: 10px;
+            color: gray;
+            padding: 0 20px;
+        }
+
+        #payment-upi {
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin: 10px;
+            text-align: center;
+            display: none;
+        }
+
+        #payment-upi>div {
+            display: flex;
+            width: 85%;
+            margin: auto;
+            align-items: center;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        #payment-upi>div>img {
+            height: 30px;
+        }
+
+        #payment-upi>div:nth-child(1)>p:nth-child(2) {
+            width: 200px;
+            margin-left: 5%;
+        }
+
+        #payment-upi>div:nth-child(1)>input {
+            height: 20px;
+            margin-top: 10px;
+            margin-left: 20%;
+        }
+
+        #payment-upi>input {
+            width: 85%;
+        }
+
+        #payment-upi>p {
+            padding: 0 30px;
+            color: gray;
+            text-align: left;
+        }
+
+        #payment-upi>div:nth-child(2) {
+            margin-left: 20%;
+            border: 1px solid rgb(75, 162, 225);
+        }
+
+        #payment-upi>button {
+            width: 90%;
+            padding: 15px 20px;
+            background-color: #4169E1;
+            color: white;
+            font-size: 20px;
+            border: none;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        #payment-upi>button:hover {
+            background-color: #F0903C;
+            cursor: pointer;
+        }
+
+        #payment-cod-button>p:nth-child(1) {
+            text-decoration: line-through;
+            color: gray;
+            font-size: 10px;
+        }
+
+        #payment-cod-button>p:nth-child(2) {
+            color: #4169E1;
+            font-size: 10px;
+        }
+
+        #verify {
+            background-color: #4169E1;
+
+        }
+
+        #verify:hover {
+            background-color: #F0903C;
+
+        }
+
+    
+      input.card-checkbox {
+        width: 50px;
+        height: 50px;
+       
+      }
+        /* #payment-wallet>div>input{
+        border: 1px solid pink;
+    }
+    #payment-wallet>div>div>img{
+        height: 30px;
+        margin-right: 20px;
+    }
+    #right-payment-mode{
+        border: 1px solid tomato;
+        width: 100%;
+    }
+     */
+        /* #payment-price >h2{
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: normal;
+        font-weight: 20px;
+     } */
+
+        @media only screen and (max-width: 480px) {
+            #payment-navbar-email {
+                margin-top: 5px;
+            }
+
+            #payment-mode {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            #right-payment-mode {
+                margin-top: 0;
+            }
+
+            #payment-wallet,
+            #payment-upi,
+            #payment-net-banking {
+                display: block;
+                margin-top: 10px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="payment-navbar">
+        <div id="payment-navbar-logo">
+            <img src="" alt="" />
+        </div>
+        <div>
+            <!-- <p>User Id</p> -->
+            <p id="payment-navbar-email"><i class="fa-solid fa-user"></i> tripathihariom34@gmail.com</p>
+        </div>
+    </div>
+    <!-- <hr /> -->
+    <div id="payment-price">
+        <h2>PAYMENT</h2>
+        <h2>PRICE $<span id="payment-amount">0</span></h2>
+    </div>
+
+
+    <div id="payment-mode">
+        <div id="left-payment-mode">
+            <button id="payment-debit-button">DEBIT/CREDIT CARD</button>
+            <button id="payment-wallet-button">WALLET</button>
+            <button id="payment-upi-button">UPI</button>
+            <button id="payment-net-banking-button">NET BANKING</button>
+            <button id="payment-cod-button">
+                <p>CASH PAYMENT </p>
+                <p>Cash Payment not currently accepted </p>
+            </button>
+        </div>
+        <div id="right-payment-mode">
+            <div id="payment-debit">
+                <div>
+                    <img src="https://images.bewakoof.com/web/Add-card-icon-1600332484.png" alt="" />
+                    <p>Add New Card</p>
+                </div>
+                <input type="text" id="card-number" placeholder="Card Number" />
+                <input type="text" id="card-name" placeholder="Name on Card" />
+                <input type="text" id="card-expiry" placeholder="Expiry (MM/YY)" />
+                <input type="password" id="card-password" placeholder="CVV" />
+                <div id="card-payment-div2">
+                    <input type="checkbox" class="card-checkbox" />
+                    <label id="card-payment-para1">Securely save this card for faster payments.</label>
+                </div>
+                <p>
+                    This transaction you make is totally secure. We don't save your
+                    CVV number.
+                </p>
+                <button id="card-pay-now-button">PAY NOW</button>
+            </div>
+            <div id="payment-wallet">
+                <div>
+                    <img src="https://images.bewakoof.com/web/paytm-1556185965.png" alt="">
+                    <p>Paytm</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/phonepe-1556185963.png" alt="">
+                    <p>Phone Pe</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/amazonpay-icon-1600094438.png" alt="">
+                    <p>Amazon Pay</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/mobikwik-1556185968.png" alt="">
+                    <p>Mobikwik</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/bitmap-copy.jpg" alt="">
+                    <p>Freecharge</p>
+                    <input type="radio">
+                </div>
+            </div>
+            <div id="payment-upi">
+                <div>
+                    <img src="https://images.bewakoof.com/web/upi-logo.png" alt="">
+                    <p>Add UPI</p>
+                    <input type="radio">
+                </div>
+                <input type="text" placeholder="Enter UPI ID">
+                <p>UPI ID is in the format of mobilenumber@bank or username@bank</p>
+                <div>
+
+                    <!-- <input type="checkbox" name="" id=""> -->
+                    <p> Save this UPI ID for future payments.</p>
+
+
+                </div>
+                <button id="verify">VERIFY</button>
+            </div>
+            <div id="payment-net-banking">
+                <div>
+                    <img src="https://images.bewakoof.com/web/icici-1556185960.png" alt="">
+                    <p>ICICI</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/axis-1556185962.png" alt="">
+                    <p>Axis</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/sbi-1556185961.png" alt="">
+                    <p>SBI</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/hdfc-1556185961.png" alt="">
+                    <p>HDFC</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/kotak-1556185967.png" alt="">
+                    <p>Kotak</p>
+                    <input type="radio">
+                </div>
+                <div>
+                    <img src="https://images.bewakoof.com/web/other-bank-icon-1600258256.png" alt="">
+                    <p>Others</p>
+                    <button id="payment-net-other-arrow">∟</button>
+                </div>
+                <p>You will be redirected to the banks website to complete the payment process.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+
+
+    var paymentDebitButton = document.getElementById("payment-debit-button");
+    var paymentWalletButton = document.getElementById("payment-wallet-button");
+    var paymentUpiButton = document.getElementById("payment-upi-button");
+    var paymentNetBankingButton = document.getElementById("payment-net-banking-button");
+
+    // Function to handle redirection and styling
+    function handlePaymentSelection(selectedButton) {
+        var buttons = [paymentDebitButton, paymentWalletButton, paymentUpiButton, paymentNetBankingButton];
+        var sections = ["payment-debit", "payment-wallet", "payment-upi", "payment-net-banking"];
+
+        for (var i = 0; i < buttons.length; i++) {
+            if (buttons[i] === selectedButton) {
+                buttons[i].style.backgroundColor = "white";
+                buttons[i].style.borderLeft = "5px solid #4169E1";
+                document.getElementById(sections[i]).style.display = "block";
+            } else {
+                buttons[i].style.backgroundColor = "whitesmoke";
+                buttons[i].style.borderLeft = "none";
+                document.getElementById(sections[i]).style.display = "none";
+            }
+        }
+    }
+
+    paymentDebitButton.addEventListener("click", function () {
+        handlePaymentSelection(paymentDebitButton);
+    });
+
+    paymentWalletButton.addEventListener("click", function () {
+        handlePaymentSelection(paymentWalletButton);
+    });
+
+    paymentUpiButton.addEventListener("click", function () {
+        handlePaymentSelection(paymentUpiButton);
+    });
+
+    paymentNetBankingButton.addEventListener("click", function () {
+        handlePaymentSelection(paymentNetBankingButton);
+    });
+    // Rest of the code remains unchanged
+
+    var FinalAmount = localStorage.getItem("finalPrice");
+    document.getElementById("payment-amount").innerText = FinalAmount;
+
+    var cardPayNowButton = document.getElementById("card-pay-now-button");
+
+    cardPayNowButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        var cardNumber = document.getElementById("card-number").value;
+        var cardName = document.getElementById("card-name").value;
+        var cardExpiry = document.getElementById("card-expiry").value;
+        var cardPassword = document.getElementById("card-password").value;
+
+        if (
+            cardNumber.trim() === "" ||
+            cardName.trim() === "" ||
+            cardExpiry.trim() === "" ||
+            cardPassword.trim() === ""
+        ) {
+            alert("Please fill in all the details.");
+        } else {
+            var person = prompt("Please enter your OTP", "");
+
+            if (person === "1234") {
+                alert("We are processing your payment!");
+                window.location.href = "./pay.html";
+            } else {
+                alert("Wrong OTP. Try Again.");
+            }
+        }
+    });
+
+    
+
+
+</script>
