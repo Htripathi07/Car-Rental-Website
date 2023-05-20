@@ -263,6 +263,10 @@
     display: none;
   }
 }
+footer{
+  background-color: #fff;
+  margin: -20px;
+}
 
   
   @media (max-width: 1000px) {
