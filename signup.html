@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mwendo Login</title>
+  <style>
+    /* CSS styles */
+
+    body {
+      font-family: Arial, sans-serif;
+      padding-left: px;
+    }
+
+    .container {
+      width: 350px;
+      margin-top:10%;
+      margin-left: 37%;
+      padding: 30px;
+      border: 1px solid grey;
+      border-radius: 20px;
+      height: 400px;
+      background-color: white;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 14px;
+    }
+
+    .form-group input {
+      width: 90%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    .form-group button {
+      width: 90%;
+      padding: 14px;
+      background-color: #4169E1;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 13px;
+    }
+
+    .form-group button:hover {
+      background-color:#F0903C ;
+    }
+
+    .cont {
+      padding-right: 1000px;
+      padding-top: 10px;
+    }
+
+    #header {
+      text-align: center;
+      padding-left:  10px;
+    }
+
+    #red {
+      color: red;
+    }
+
+    .sideBar {
+      border: 1px solid black;
+      width: 18rem;
+      height: 27rem;
+      position: absolute;
+      display: inline-block;
+      margin-left: 55rem;
+      top: 11rem;
+    }
+
+    h4 {
+      color: grey;
+      text-align: center;
+    }
+
+    h2 {
+      text-align: center;
+      background-color: white;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    body {
+      background-image: url('https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg?size=626&ext=jpg');
+      background-size: cover;
+    }
+
+    .login-container {
+      /* Styles for the login container go here */
+      background-color: rgba(255, 255, 255, 0.8); /* Optional: Add a semi-transparent background color to the login container */
+    }
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Poppins', sans-serif;
+    }
+    :root{
+        --main-color:#fe5b3d;
+        --second-color:#ffac38;
+        --text-color:#444;
+        --gradient:linear-gradient( #fe5b3d , #ffac38);
+    }
+    
+    html::-webkit-scrollbar{
+        width:  0.5rem;
+    }
+    html::-webkit-scrollbar-track{
+       
+        background: transparent;
+    }
+    html::-webkit-scrollbar-thumb{
+        background: var(--main-color);
+        border-radius: 5rem;
+    }
+    section{
+        padding: 50px  100px;
+    }
+    header{
+        position: fixed;
+        width: 100%;
+        height:78 px ;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        padding: 15px  100px;
+    }
+    .logo img{
+        width: 250px;
+    }
+    .navbar{
+        display: flex;
+        
+    }
+    .navbar li{
+        position:relative;
+    }
+    .navbar a{
+        font-size: 1rem;
+        padding: 10px 20px;
+        color: #4169E1;
+        font-weight: 500;
+            
+    }
+    .navbar a::after{
+        content: "";
+        width:0;
+        height: 3px;
+        background: var(--gradient);
+        position: absolute;
+        bottom:-4px;
+        left:0;
+        transition: 0.5s;
+    }
+    .navbar a:hover::after{
+        width: 100%;
+    }
+    #menu-icon{
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 10001;
+        display: none;
+    }
+    .header-btn a {
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+    .header-btn .login{
+        padding: 10px 20px;
+        color:  #fff;
+        font-weight: 400;
+       color: #4169E1;
+        border-radius:20px;
+        border: 2px solid rgb(181, 180, 180);
+    }
+     .login:hover{
+        background: #F0903C;
+        color: white;
+    
+    }
+    .header-btn .getstart{
+        padding: 10px 20px;
+        color:  white;
+        font-weight: 400;
+        background: #4169E1;
+        border-radius:20px;
+        width: auto;
+    }
+    .header-btn .getstart:hover{
+        background: #F0903C;
+    }
+    /* Existing code... */
+
+@media (max-width: 991px) {
+  header {
+    padding: 18px 40px;
+  }
+  section {
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 11px 40px;
+  }
+  #menu-icon {
+    display: initial;
+    position: relative; /* Add this line to center the icon */
+    left: 50%; /* Add this line to center the icon */
+    transform: translateX(-50%); /* Add this line to center the icon */
+  }
+  .getstart {
+    display: none;
+  }
+  .text h1 {
+    font-size: 2.5rem;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    text-align: left;
+  }
+  .navbar .active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    border-left: 2px solid var(--main-color);
+    margin: 1rem;
+    display: block;
+  }
+  .navbar a:hover {
+    color: #fff;
+    background: var(--main-color);
+    border: none;
+  }
+  .navbar a::after {
+    display: none;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo"><img src="https://lh3.googleusercontent.com/GS20N2Kx_WZNQMSLuFabBmRL88TzOZMBNX4KDw4A0qG3o_CpNZsOvKqpJkVJoZd_jqg53gi8w7pq6SskCJ7GvQvIMADVmu3ETVfj72w"></a>
+    <div class="bx bx-menu" id="menu-icon">
+        
+    </div>
+
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Resource</a></li>
+        <li><a href="#">Contact</a></li>
+
+    </ul>
+    <div class="header-btn">
+        <a href="#" class="login">Login</a>
+        <a href="#" class="getstart">Get Started</a>
+    </div>
+  </header>
+  <div class="container">
+    <h2 id="header">Login</h2>
+    <form action="index.html" onsubmit="login(event)">
+      <div class="form-group">
+        <label for="username">Username or email address<span id="red"> *</span></label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password <span id="red">*</span></label>
+        <input type="password" id="password" name="password" required>
+        <span id="passwordError" style="color: red; display: none;">Password must have at least 9 characters</span>
+      </div>
+      <div>
+        <input type="checkbox">
+        <span>Remember me</span>
+      </div>
+      <div class="form-group">
+        <button type="submit">Login</button>
+      </div>
+      <div>
+        Don't have an account? <a href="registeration.html">Register here</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function login(event) {
+      const passwordInput = document.getElementById("password");
+      const passwordError = document.getElementById("passwordError");
+
+      if (passwordInput.value.length < 9) {
+        passwordError.style.display = "block";
+        event.preventDefault(); // Prevent form submission
+      } else {
+        // Redirect to index.html
+        window.location.href = "index.html";
+      }
+    }
+     </script>
+</body>
+</html>
