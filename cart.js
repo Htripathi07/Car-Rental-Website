@@ -179,6 +179,7 @@ function fun(){
       
   }
   console.log(obj);
+  localStorage.setItem("selectedCars",JSON.stringify(data));
   localStorage.setItem("PaymentDetails",JSON.stringify(obj));
   window.location.href="paymentPage.html";
 }
