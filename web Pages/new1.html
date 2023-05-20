@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+.row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px 0;
+}
+.col-1{
+    flex-basis: 40%;
+    position: relative;
+    margin-left: 50px;
+}
+.col-1 h2{
+    font-size: 54px;
+
+}
+.col-1 h3{
+    font-size: 30px;
+    color: #b7b7b7;
+    font-weight: 100;
+    margin: 20px 0 10px;
+
+}
+.col-1 p{
+    font-size: 16px;
+    color: #b7b7b7;
+    font-weight: 100;
+}
+.col-1 h4{
+    margin: 30px 0;
+    font-size: 20px;
+    
+}
+button{
+    width: 140px;
+    border: 0;
+    padding: 12px 10px;
+    outline: none;
+    color: #fff;
+    background: linear-gradient(to right,#0b0804,#f3a10a);
+   cursor: pointer;
+   transition: width 0.5s;
+   border-radius: 5px;
+   font-size: 15px;
+   color: rgb(255, 252, 252);
+}
+button  img{
+    width: 30px;
+    display: none;
+    
+}
+button:hover img{
+    display: block;
+}
+button:hover{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.col-1::after{
+    content: '';
+    width: 10px;
+    height: 57%;
+  background: linear-gradient(to right,#c7a71a,#f3a10a);
+position: absolute;
+left: -40px;
+top :8px;
+
+}
+.col-2{
+    position: relative;
+    flex-basis: 60%;
+    display: flex;
+    align-items: center;
+}
+.col-2 .controller{
+    width: 80%;
+    transform: scaleX(-1);
+}
+
+.col-2::after
+  {
+    content: '';
+    width: 10px;
+    height: 80%;
+  background: linear-gradient(to right,#c7a71a,#f3a10a);
+position: absolute;
+ right: 4px;
+bottom :100px;
+ 
+
+}
+    </style>
+</head>
+<body>
+    <div class="row"> 
+        <div class="col-1">
+            <h2> Abc def ghi   <br> student</h2>
+            <h3> Act ngjmf Coontrol</h3>
+            <p>comfirt</p>
+            <h4>$400</h4>
+            <button type="button">Rent Now <img src="arrow.png"></button>
+        </div>
+        <div class="col-2">
+<img src="about.png" class="controller">
+        </div>
+    </div>
+</body>
+</html>

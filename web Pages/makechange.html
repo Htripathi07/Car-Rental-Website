@@ -1,0 +1,120 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Selector</title>
+  <style>
+    /* Styling the select dropdown */
+    select {
+      width: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    /* Styling the option elements */
+    select option {
+      font-size: 14px;
+    }
+
+    /* Styling the selected option */
+    select option:checked {
+      background-color: #e0e0e0;
+    }
+
+    /* Styling the car details container */
+    #car-details {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    /* Styling the car image */
+    #car-image {
+      width: 200px;
+      margin-right: 20px;
+    }
+
+    /* Styling the car features */
+    #car-features {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Car Selector</h1>
+
+  <select id="car-model">
+    <option value="" data-image="https://c4.wallpaperflare.com/wallpaper/536/196/1015/snow-black-suv-toyota-wallpaper-preview.jpg" data-comfort="" data-design="" data-mileage="" data-rent-price="">Select a car model</option>
+    <option value="" data-image="https://c4.wallpaperflare.com/wallpaper/536/196/1015/snow-black-suv-toyota-wallpaper-preview.jpg" data-comfort="Luxry" data-design="interriior" data-mileage="30km" data-rent-price="400$">ALTO</option>
+    <option value="" data-image="" data-comfort="" data-design="" data-mileage="" data-rent-price="">Select a car model</option>
+    <option value="" data-image="" data-comfort="" data-design="" data-mileage="" data-rent-price="">Select a car model</option>
+    <option value="" data-image="" data-comfort="" data-design="" data-mileage="" data-rent-price="">Select a car model</option>
+    <!-- Add your car options here -->
+  </select>
+
+  <div id="car-details">
+    <img id="car-image" src="" >
+    <div id="car-features"></div>
+  </div>
+
+  <script>
+    // JavaScript code here
+  </script>
+</body>
+</html>
+
+<script>// Get the necessary elements
+    const carModelSelect = document.getElementById('car-model');
+    const carDetailsContainer = document.getElementById('car-details');
+    
+    // Create car features div
+    const carFeaturesDiv = document.createElement('div');
+    carFeaturesDiv.id = 'car-features';
+    
+    // Create car image element
+    const carImage = document.createElement('img');
+    carImage.id = 'car-image';
+   
+    
+    // Append car features div and car image to the car details container
+    carDetailsContainer.appendChild(carImage);
+    carDetailsContainer.appendChild(carFeaturesDiv);
+    
+    // Add event listener to the car model select
+    carModelSelect.addEventListener('change', function() {
+      // Get the selected option
+      const selectedOption = carModelSelect.options[carModelSelect.selectedIndex];
+    
+      // Clear previous car features
+      carFeaturesDiv.innerHTML = '';
+    
+      // Set the car image source and alt text
+      carImage.src = selectedOption.getAttribute('data-image');
+    
+      // Create car feature elements
+      const modelName = document.createElement('p');
+      modelName.textContent = 'Model Name: ' + selectedOption.value;
+    
+      const comfort = document.createElement('p');
+      comfort.textContent = 'Comfort: ' + selectedOption.getAttribute('data-comfort');
+    
+      const design = document.createElement('p');
+      design.textContent = 'Design: ' + selectedOption.getAttribute('data-design');
+    
+      const mileage = document.createElement('p');
+      mileage.textContent = 'Mileage: ' + selectedOption.getAttribute('data-mileage');
+    
+      const rentPrice = document.createElement('p');
+      rentPrice.textContent = 'Rent Price per Day: $' + selectedOption.getAttribute('data-rent-price');
+    
+      // Append car feature elements to the car features div
+      carFeaturesDiv.appendChild(modelName);
+      carFeaturesDiv.appendChild(comfort);
+      carFeaturesDiv.appendChild(design);
+      carFeaturesDiv.appendChild(mileage);
+      carFeaturesDiv.appendChild(rentPrice);
+    });</script>
