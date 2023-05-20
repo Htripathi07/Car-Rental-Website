@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        
+        h1 {
+            margin-top: 50px;
+        }
+        
+        #otpContainer {
+            display: none;
+        }
+        
+        #otpInput {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        #errorMessage {
+            color: red;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function generateOTP() {
+            // Code to generate OTP
+            var otp = Math.floor(1000 + Math.random() * 9000);
+            return otp;
+        }
+        
+        function showOTP() {
+            var mobileNumber = document.getElementById('mobileNumber').value;
+            if (mobileNumber.length === 10 && /^\d+$/.test(mobileNumber)) {
+                var otpContainer = document.getElementById('otpContainer');
+                var otpInput = document.getElementById('otpInput');
+                var errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = '';
+                otpContainer.style.display = 'block';
+                otpInput.style.display = 'block';
+                var otp = generateOTP();
+                alert('OTP: ' + otp); // Displaying OTP for demonstration purposes only
+            } else {
+                var errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = 'Please enter a valid mobile number.';
+            }
+        }
+        
+        function verifyOTP() {
+            var enteredOTP = document.getElementById('enteredOTP').value;
+            var otp = document.getElementById('otp').textContent;
+            if (enteredOTP === otp) {
+                window.location.href = 'home.html';
+            } else {
+                var errorMessage = document.getElementById('errorMessage');
+                errorMessage.textContent = 'Incorrect OTP. Please try again.';
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Login</h1>
+    <input type="text" id="mobileNumber" placeholder="Enter mobile number (10 digits)" maxlength="10">
+    <br>
+    <button onclick="showOTP()">Get OTP</button>
+    <div id="otpContainer">
+        <input type="text" id="enteredOTP" placeholder="Enter OTP" maxlength="4">
+        <br>
+        <button onclick="verifyOTP()">Verify OTP</button>
+    </div>
+    <div id="otpInput"></div>
+    <div id="errorMessage"></div>
+</body>
+</html>
