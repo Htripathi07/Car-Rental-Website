@@ -1,4 +1,7 @@
-.car-container {
+ body{
+  background-image: url('https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg?size=626&ext=jpg');
+ }
+ .car-container {
   display: grid;
   grid-template-columns: repeat(4,1fr);
   
@@ -114,7 +117,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
     scroll-behavior: smooth;
     text-decoration: none;
     list-style: none;
