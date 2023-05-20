@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-c50f7c1/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png" sizes="64x64">
+    <link
+    href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+    rel="stylesheet"
+  />
+    
+    <title>CartPage</title>
+    
+
+    <style>
+        body{
+            background-image: url("https://img.freepik.com/free-vector/blue-curve-background_53876-113112.jpg?size=626&ext=jpg");
+        }
+        h1 {
+            color: black;
+            font-size: 33px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin-left: -30px;
+            
+        }
+        h1:hover {
+            color:#F0903C
+            
+        }
+        #main {
+            display: flex;
+            margin: auto;
+            width: 80%;
+            gap: 60px;
+            justify-content: space-between;
+            
+        }
+
+        #left {
+            width: 70%;
+           
+        }
+
+        #right {
+            width: 40%;
+            
+           
+        }
+        #right > div > ul{
+           padding: 26px;
+        }
+        #productDiv{
+            margin-bottom: 50px;
+        }
+        #productDivBody>tr>td,th {
+            text-align: center;
+            
+        }
+        th{
+            padding: 20px;
+                    
+            
+        }
+        tr{
+           
+           box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;        } 
+
+        #productDivBody>tr>td>img {
+            width: 200px;
+        }
+
+        #buttonPayment {
+            margin-top:  23%;
+            
+            
+            padding: 10px 15px;
+            width: 100px;
+            
+            border-radius: 5px;
+            color: white;
+
+            background-color: #4169E1;
+            border: none;
+            width: 100%;
+            height: 50px;
+           
+
+        }
+        #buttonPayment:hover{
+            background-color: #F0903C;
+        }
+
+        
+        #cartTotalDiv{
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: space-between;
+            width:100%;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        #productTable{
+            
+            background-color: whitesmoke;
+            margin: 0 -1px 24px 0;
+            text-align: left;
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 5px;
+            text-indent: initial;
+            display: table;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        #productTable > th{
+            justify-content: space-around;
+        }
+        #cartTotals>h3>span{
+            justify-content: end;
+            text-decoration: none;
+            font-weight:20;
+        }
+
+        #right > div{
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 30px;
+            background-color: whitesmoke;
+        }
+        #right > div:first-child{
+            margin-top: 82px;
+        }
+        #s0{
+          margin-left: 35px;
+            color: #4169E1;
+        }
+        #s1{
+            margin-left: 31px;
+            color: #4169E1;
+        }
+        #s2{
+            margin-left: 25px;
+            color: #4169E1;
+        }
+        #s3{
+            margin-left: 58px;
+            color: #4169E1;
+        }
+        #s4{
+            margin-left: 15px;
+            color: #4169E1;
+        }
+        
+        
+        
+
+        #cartTotalDiv{
+            width: 100%;
+            height: 237px;
+        }
+        #cartTotalDiv > div > input{
+            width:98%;
+            border: 1px solid #4169E1;
+            border-radius: 10px;
+            padding: 10px;
+            
+        }
+        #left{
+            margin-top: 58px;
+        }
+        #right{
+            margin-top: 13px;
+        }
+        
+        /* ============================================================== */
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* scroll-padding-top: 2rem;
+    scroll-behavior: smooth; */
+    text-decoration: none;
+    
+    font-family: 'Poppins', sans-serif;
+    }
+    /* :root{
+        --main-color:#fe5b3d;
+        --second-color:#ffac38;
+        --text-color:#444;
+        --gradient:linear-gradient( #fe5b3d , #ffac38);
+    } */
+    
+    html::-webkit-scrollbar{
+        width:  0.5rem;
+    }
+    html::-webkit-scrollbar-track{
+       
+        background: transparent;
+    }
+    html::-webkit-scrollbar-thumb{
+        background: var(--main-color);
+        border-radius: 5rem;
+    }
+    section{
+        padding: 50px  100px;
+    }
+    body{
+        /* list-style: none; */
+    }
+    header{
+        
+        position: fixed;
+        width: 100%;
+        height:55px ;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: white;
+        padding: 15px  100px;
+    }
+    .logo img{
+        width: 250px;
+    }
+    .navbar{
+        list-style: none;
+        display: flex;
+        
+    }
+    .navbar li{
+        position:relative;
+    }
+    .navbar a{
+        font-size: 1rem;
+        padding: 10px 20px;
+        color: #4169E1;
+        font-weight: 500;
+            
+    }
+    .navbar a::after{
+        content: "";
+        width:0;
+        height: 3px;
+        background: var(--gradient);
+        position: absolute;
+        bottom:-4px;
+        left:0;
+        transition: 0.5s;
+    }
+    .navbar a:hover::after{
+        width: 100%;
+    }
+    #menu-icon{
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 10001;
+        display: none;
+    }
+    .header-btn a {
+        padding: 10px 20px;
+        color: var(--text-color);
+        font-weight: 600;
+    }
+    .header-btn .login{
+        padding: 10px 20px;
+        color:  #fff;
+        font-weight: 400;
+       color: #4169E1;
+        border-radius:20px;
+        border: 2px solid rgb(181, 180, 180);
+    }
+     .login:hover{
+        background: #F0903C;
+        color: white;
+    
+    }
+    .header-btn .getstart{
+        padding: 10px 20px;
+        color:  white;
+        font-weight: 400;
+        background: #4169E1;
+        border-radius:20px;
+        width: auto;
+    }
+    .header-btn .getstart:hover{
+        background: #F0903C;
+    }
+    /* Existing code... */
+
+@media (max-width: 991px) {
+  header {
+    padding: 18px 40px;
+  }
+  section {
+    padding: 50px 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 11px 40px;
+    /* list-style: none; */
+  }
+  #menu-icon {
+    display: initial;
+    position: relative; /* Add this line to center the icon */
+    left: 50%; /* Add this line to center the icon */
+    transform: translateX(-50%); /* Add this line to center the icon */
+  }
+  .getstart {
+    display: none;
+  }
+  .text h1 {
+    font-size: 2.5rem;
+  }
+  header .navbar {
+    position: absolute;
+    top: -500px;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+    transition: 0.2s ease;
+    text-align: left;
+  }
+  .navbar .active {
+    top: 100%;
+  }
+  .navbar a {
+    padding: 1rem;
+    border-left: 2px solid var(--main-color);
+    margin: 1rem;
+    display: block;
+  }
+  .navbar a:hover {
+    color: #fff;
+    background: var(--main-color);
+    border: none;
+  }
+  .navbar a::after {
+    display: none;
+  }
+}
+footer{
+    background-color: #fff;
+}
+       
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="navbar">
+            <body>
+                <header>
+                    <a href="#" class="logo"><img src="logo1.png"></a>
+                    <div class="bx bx-menu" id="menu-icon">
+                        
+                    </div>
+                
+                    <ul class="navbar">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Resource</a></li>
+                        <li><a href="#">Contact</a></li>
+                
+                    </ul>
+                    <!-- <div class="header-btn">
+                        <a href="#" class="login">Login</a>
+                        <a href="#" class="getstart">Get Started</a>
+                    </div> -->
+                  </header>
+            </body>
+        </div>
+        <div id="left">
+
+            <h1 id="firstH1">Cart</h1>
+            <div id="productDiv">
+                <table id="productTable">
+                    <thead>
+                        <tr>
+                            <th>VIEW</th>
+                            <th>PRODUCT</th>
+                            <th>PRICE</th>
+                            <th>QUANTITY</th>
+                            <th>SUBTOTAL</th>
+                            <th>REMOVE</th>
+                            
+                        </tr>
+                        
+                    </thead>
+                    <tbody id="productDivBody">
+                        
+
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- =========================================== -->
+            <h1>Cart Total</h1>
+            <div id="cartTotalDiv">
+                <div id="cartTotals" >
+                  <h3>❑ Subtotal :<span id="s0">$ <span id="subTotal"></span></span></h3>
+                  <h3>❑ Discount :<span id="s1">$ <span id="discount">0</span></span></h3>
+                  <h3>❑ Tax(20%) :<span id="s2">$ <span id="tax"></span></span></h3>
+                  <h3>❑ Total :<span id="s3">$ <span id="total"></span></span> </h3>
+                  
+                  <h3>❑ To Be Paid :<span id="s4">$ <span id="toPay"></span></span></h3>
+                  
+                </div>
+                <div>
+                <input type="text" id="coupon" placeholder="Enter Coupon Here" oninput="debounce(main, 3000)"/>
+                 <button id="buttonPayment"></button>
+                </div>               
+
+            </div>
+            
+            <!-- <a id="anchor" href="./paymentPage.html">PROCEED TO CHECKOUT</a> -->
+
+        </div>
+
+        <div id="right">
+            <div>
+                <h2>Recent Post</h2>
+                <ul>
+                    <li>Mwendo Africa: The Most Convenient Car Rental Option in Zimbabwe</li>
+                    <li>Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
+                    <li>Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                    <li>Explore Zimbabwe’s Hidden Gems with Mwendo Africa Car Rental</li>
+                    <li>Why Renting a Car from Mwendo Africa is the Best Way to See Zimbabwe</li>
+                </ul>
+            </div>
+            <div>
+                <h2>Recent Comments</h2>
+                <ul>
+                    <li>webadmin on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                    <li>marketing on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
+                    <li>Thandiwe Makanjera on Rent a Car from Mwendo Africa and Enjoy the Best of Zimbabwe’s Wildlife</li>
+                    <li>Brian Hoshiki on Experience the Best of Zimbabwe with Mwendo Africa Car Rental</li>
+                </ul>
+            </div>
+            
+
+        </div>
+
+    </div>
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+          <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
+            <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900"cursor="pointer">
+              <img src="logo1.png" alt="logo" >
+            </a>
+          
+          </div>
+          <div class="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">PRODUCT</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Feature</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Pricing</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Case studiex</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Reviews</a>
+                </li>
+                <li>
+                    <a class="text-gray-500 hover:text-gray-800">Updates</a>
+                  </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">COMPANY</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">About</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Contact us</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Careers</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Culture</a>
+                </li>
+                <li>
+                    <a class="text-gray-500 hover:text-gray-800">Blog</a>
+                  </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">SUPPORT</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Getting atarted</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Help center</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Server status</a>
+                </li>
+                <li>
+                  <a class="text-gray-500 hover:text-gray-800">Report a Bug</a>
+                </li>
+                <li>
+                    <a class="text-gray-500 hover:text-gray-800">Chat support</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Mwendu Africa —
+              <a href="https://twitter.com/knyttneve" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank" cursor="pointer">@knyttneve</a>
+            </p>
+            <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+              <a class="text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+      </footer>
+    <script src="./cart.js"></script>
+</body>
+
+</html>
