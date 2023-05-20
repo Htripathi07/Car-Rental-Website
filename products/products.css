@@ -126,7 +126,7 @@
     header{
         position: fixed;
         width: 100%;
-        height:78 px ;
+        height:70px ;
         top: 0;
         right: 0;
         z-index: 1000;
@@ -196,8 +196,12 @@
         color:  white;
         font-weight: 400;
         background: #4169E1;
-        border-radius:20px;
+        border-radius:30px;
+        
         width: auto;
+    }
+    .getstart{
+      margin-left: 20px;
     }
     .header-btn .getstart:hover{
         background: #F0903C;
